@@ -1,0 +1,35 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Formulario - agregar tipo de Whisky</h1>
+
+   
+    
+    <form action="wky_alta_form" method="POST">
+        {% csrf_token %}
+
+        <p>Tipo de Whisky</p>
+        <input type="text" name = "tipo" >
+        <p>Materia prima</p>
+        <input type="text" name = "materia_prima">
+        <p>Destilacion</p>
+        <input type="text" name = "destilacion">
+        <p>Tipo de agua</p>
+        <input type="text" name = "tipo_agua" >
+        <p>Tiempo (en años)</p>
+        <input type="number" name = "tiempo" >    
+
+    
+        <input type="submit" , value="Eviar">
+    
+
+
+    
+    
+    </form>
+{% endblock%}
+
+

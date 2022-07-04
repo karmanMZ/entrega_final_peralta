@@ -1,0 +1,42 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Formulario - editar estilo de cerveza</h1>
+
+   
+    
+    <form action="{% url 'crv_edit_form' cerv_art.id %}" method="POST">
+        {% csrf_token %}
+
+        <p>Estilo</p>
+        <input type="text" name = "estilo" >
+        <p>Ibu</p>
+        <input type="number" name = "ibu">
+        <p>Alcohol</p>
+        <input type="number" name = "alcohol">
+        <p>Cuerpo</p>
+        <input type="text" name = "cuerpo" >
+        <p>Amargor</p>
+        <input type="text" name = "amargor" >
+        <p>Aroma</p>
+        <input type="text" name = "aroma">
+        <p>Temperatura de consumo</p>
+        <input type="number" name = "temp_cons" >
+    
+
+    
+        <input type="submit" , value="Eviar">
+    
+
+
+    
+    
+    </form>
+{% endblock%}
+
+
+
+

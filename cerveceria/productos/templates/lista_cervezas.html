@@ -1,0 +1,60 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido%}
+    
+    <h1> Lista de estilos registrado </h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</strong></th>
+                <th scope="col">Estilo</strong></th>
+                <th scope="col">Ibu</strong></th>
+                <th scope="col">Alcohol</strong></th>
+                <th scope="col">Cuerpo</strong></th>
+                <th scope="col">Amargor</strong></th>
+                <th scope="col">Aroma</strong></th>
+                <th scope="col">Temperatura de consumo (°C)</strong></th>
+                {% if request.user.is_authenticated %}
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in info_cervezas %}
+
+            <tr>                        
+                <td scope="row">{{n.id}}</td>
+                <td>{{n.estilo}}</td>
+                <td>{{n.ibu}}</td>
+                <td>{{n.alcohol}}</td>
+                <td>{{n.cuerpo}} </td>
+                <td>{{n.amargor}}</td>
+                <td>{{n.aroma}}</td>
+                <td>{{n.temp_consumo}}</td>
+                {% if request.user.is_authenticated %}
+                <td><a href="{% url 'crv_edit_form' n.id %}">EDITAR</a></td>
+                <td><a href="{% url 'crv_elim_form' n.id %}">BORRAR</a></td>
+                {% endif %}
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% if request.user.is_authenticated %}
+    <button>
+        <a href="crv_alta_form"> Agregar nuevo estilo </a>
+    </button>
+    {% endif %}
+
+
+    
+{% endblock%}
+
+

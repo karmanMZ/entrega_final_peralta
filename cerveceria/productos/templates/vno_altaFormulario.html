@@ -1,0 +1,37 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Formulario - agregar tipo de Vino</h1>
+
+   
+    
+    <form action="vno_alta_form" method="POST">
+        {% csrf_token %}
+
+        <p>Tipo de Vino</p>
+        <input type="text" name = "color" >
+        <p>Estado</p>
+        <input type="text" name = "estado">
+        <p>Envejecimiento (en años)</p>
+        <input type="number" name = "envejecimiento">
+        <p>Calidad</p>
+        <input type="text" name = "calidad" >
+        <p>Azucar (en g/l)</p>
+        <input type="number" name = "azucar" >    
+
+    
+        <input type="submit" , value="Eviar">
+    
+
+
+    
+    
+    </form>
+{% endblock%}
+
+
+
+

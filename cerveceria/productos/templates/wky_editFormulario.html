@@ -1,0 +1,35 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Formulario - editar tipo de Whisky</h1>
+
+   
+    
+    <form action="{% url 'wky_edit_form' whisky.id %}" method="POST">
+        {% csrf_token %}
+
+        <p>Tipo de Whisky</p>
+        {{formulario.tipo}}
+        <p>Materia prima</p>
+        {{formulario.materia_prima}}
+        <p>Destilacion</p>
+        {{formulario.destilacion}}
+        <p>Tipo de agua</p>
+        {{formulario.tipo_agua}}
+        <p>Tiempo (en años)</p>
+        {{formulario.tiempo}}
+       
+
+        <input type="submit" value="Enviar">
+
+    
+
+
+    
+    
+    </form>
+{% endblock%}
+

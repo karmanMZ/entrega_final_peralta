@@ -1,0 +1,33 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Formulario - agregar producto</h1>
+
+   
+    
+    <form action="prs_alta_form" method="POST">
+        {% csrf_token %}
+
+        <p>Nombre del producto:</p>
+        <input type="text" name = "nombre_producto" >
+        <p>Tipo de producto</p>
+        <input type="text" name = "tipo_producto">
+        <p>Fecha de registro</p>
+        <input type="date" name = "fecha_registro">    
+
+    
+        <input type="submit" , value="Eviar">
+    
+
+
+    
+    
+    </form>
+{% endblock%}
+
+
+
+

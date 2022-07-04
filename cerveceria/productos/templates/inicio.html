@@ -1,0 +1,51 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+
+<body>
+    <div class="main_div">
+        
+        <article class="feed_one feed_principal">
+            <header class="titulo_header" align="center">
+                <h2 class="big">Bienvenidos/as a la pagina de nuestra Cerveceria Artesanal</h2>
+
+            </header>
+            <div>
+                {% if not request.user.is_authenticated %}
+                <p>Registrate o logueate para usar todas funciones disponibles</p>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <p>{{user.username}}, recorda que desde la solapa Nuestros productos podes modificar la base de datos</p>
+                {% endif %}
+
+            </div>
+        </article>
+    </div>
+    
+    
+</body>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    body{
+        background: #f3f3f3;
+
+    }
+
+
+</style>
+
+    
+    
+{% endblock%}
+
+
+
+

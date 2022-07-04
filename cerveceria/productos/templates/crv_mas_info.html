@@ -1,0 +1,36 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+    
+    
+    <div class="container">
+
+        <div class="row">           
+            <div class="col">
+                <div class="card" >
+                    <img src="{%  static 'productos/assets/img/cerveza.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{estilo}}</h5>
+                      <p class="card-text">{{ibu}}</p>
+                      <p class="card-text">{{alcohol}}</p>
+                      <p class="card-text">{{cuerpo}}</p>
+                      <p class="card-text">{{amargor}}</p>
+                      <p class="card-text">{{aroma}}</p>
+                      <p class="card-text">{{temp_consumo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    
+
+{% endblock %}

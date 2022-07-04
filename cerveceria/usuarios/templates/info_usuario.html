@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+    
+    
+{% if user.is_authenticated %}
+<p>Datos de usuario</p>
+
+<li>Usuario: {{ user.get_username }}</li>
+<li>Email: {{ user.email }}</li>
+<li><a href="{% url 'editarPerfil' %}">Modificar perfil</a></li>
+
+{% endif %} 
+
+
+    
+
+{% endblock %}

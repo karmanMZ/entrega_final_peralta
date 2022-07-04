@@ -1,0 +1,60 @@
+{% extends "padre.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+
+<div class="aboutus-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="aboutus">
+                    <h2 class="aboutus-title">Acerca de mi</h2>
+                    <p class="aboutus-text">Soy Lautaro, y este es mi proyecto final para el curso de Codehouse de Python</p>
+                    <p class="aboutus-text">La web de este proyecto es sobre una cerveceria artesanal ficticia, el cual detalla en varias paginas sus productos y caracteristicas mediante lo aprendido en el curso</p>
+                    <a class="aboutus-more" href="{% url 'inicio' %}">Ir al inicio</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="aboutus-banner">
+                    <img src="{%  static 'productos/assets/img/cerv_art.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-6 col-xs-12">
+                <div class="feature">
+                    <div class="feature-box">
+                        <div class="clearfix">
+                            <div class="iconset">
+                                <span class="glyphicon glyphicon-cog icon"></span>
+                            </div>
+                            <div class="feature-content">
+                                <h4>CRUD</h4>
+                                <p>El proyecto contiene CRUD completo para los tres productos principales, el cual solo son accesibles para los usuarios registrados (administradores)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="clearfix">
+                            <div class="iconset">
+                                <span class="glyphicon glyphicon-cog icon"></span>
+                            </div>
+                            <div class="feature-content">
+                                <h4>LOGIN</h4>
+                                <p>La web permite registrarse y loguearse a la misma</p>
+                            </div>
+                        </div>
+                    </div>                                                                    
+                                     
+                                     
+                 
+                 
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

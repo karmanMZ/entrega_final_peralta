@@ -1,0 +1,106 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+
+{% block contenido%}
+    
+    
+    <table class="table">
+        
+        <thead>
+            <tr>
+                <th scope="col"><a href="{% url 'crv_lista' %}" class="btn btn-outline-secondary" role="button" aria-pressed="true">Cervezas Artesanales</a></strong></th>
+                <th scope="col"><a href="{% url 'vno_lista' %}" class="btn btn-outline-secondary" role="button" aria-pressed="true">Vinos</a></strong></th>
+                <th scope="col"><a href="{% url 'wky_lista' %}" class="btn btn-outline-secondary" role="button" aria-pressed="true">Whiskys</a></strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+
+            <tr>                        
+                <td>
+                    <table>
+                        {% for n in info_cervezas %}
+
+                        <tr>                       
+                            
+                            <td>{{n.estilo}}</td>                            
+                            <td><a href="{% url 'crv_info' n.id %}">+</a></td>
+                            {% if request.user.is_authenticated %}
+                            <td><a href="crv_alta_form"> C </a></td>
+                            <td><a href="{% url 'crv_edit_form' n.id %}">U</a></td>
+                            <td><a href="{% url 'crv_elim_form' n.id %}">D</a></td>
+                            {% endif %}
+                        </tr>
+
+                        {% endfor %}
+                        
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        {% for n in info_vinos %}
+
+                        <tr>                       
+                            
+                            <td>{{n.color}}</td>
+                            <td><a href="{% url 'vno_info' n.id %}">+</a></td>
+                            {% if request.user.is_authenticated %}
+                            <td><a href="vno_alta_form"> C </a></td>
+                            <td><a href="{% url 'vno_edit_form' n.id %}">U</a></td>
+                            <td><a href="{% url 'vno_elim_form' n.id %}">D</a></td>
+                            {% endif %}
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                </td>
+                <td>
+                    
+                    <table>
+                        {% for n in info_whiskys %}
+
+                        <tr>                       
+                            
+                            <td>{{n.tipo}}</td>
+                            <td><a href="{% url 'wky_info' n.id %}">+</a></td>
+                            {% if request.user.is_authenticated %}
+                            <td><a href="wky_alta_form"> C </a></td>
+                            <td><a href="{% url 'wky_edit_form' n.id %}">U</a></td>
+                            <td><a href="{% url 'wky_elim_form' n.id %}">D</a></td>
+                            {% endif %}
+                        </tr>
+
+                        {% endfor %}
+                    </table>                    
+                </td>
+            </tr>
+
+            
+
+        </tbody>
+        
+    </table>
+    <table>
+        <tr>            
+            <td>
+                <p>Usar + para ver mas informacion, o selecciona un tipo de producto</p>
+                {% if request.user.is_authenticated %}
+                <p>Usar CUD para crear, editar o eliminar elementos de la lista</p>
+                {% endif %}
+    
+            </td> 
+                
+            
+        </tr>
+    </table>
+    
+        
+
+
+    
+{% endblock%}
+
+

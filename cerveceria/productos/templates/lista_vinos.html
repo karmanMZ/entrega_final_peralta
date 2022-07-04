@@ -1,0 +1,51 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Lista de vinos registrado</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</strong></th>
+                <th scope="col">Color</strong></th>
+                <th scope="col">Estado</strong></th>
+                <th scope="col">Envejecimiento</strong></th>
+                <th scope="col">Calidad</strong></th>
+                <th scope="col">Azucar (en g/l)</strong></th>
+                {% if request.user.is_authenticated %}
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in info_vinos %}
+    
+            <tr>                        
+                <td scope="row">{{n.id}}</td>
+                <td>{{n.color}}</td>
+                <td>{{n.estado}}</td>
+                <td>{{n.envejecimiento}}</td>
+                <td>{{n.calidad}} </td>
+                <td>{{n.azucar}}</td>
+                {% if request.user.is_authenticated %}
+                <td><a href="{% url 'vno_edit_form' n.id %}">EDITAR</a></td>
+                <td><a href="{% url 'vno_elim_form' n.id %}">BORRAR</a></td>
+                {% endif %}
+            </tr>
+    
+            {% endfor %}
+    
+        </tbody>
+    </table>
+    {% if request.user.is_authenticated %}
+        <button>
+            <a href="vno_alta_form"> Agregar nuevo tipo de Vino</a>
+        </button>
+    {% endif %}
+
+{% endblock %}
+

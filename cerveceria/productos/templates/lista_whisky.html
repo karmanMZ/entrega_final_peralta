@@ -1,0 +1,62 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    
+    <h1> Lista de tipos de Whiskys registrado </h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</strong></th>
+                <th scope="col">Tipo</strong></th>
+                <th scope="col">Materia prima</strong></th>
+                <th scope="col">Destilacion</strong></th>
+                <th scope="col">Tipo de agua</strong></th>
+                <th scope="col">Tiempo (en años)</strong></th>
+                {% if request.user.is_authenticated %}
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in info_whisky %}
+
+            <tr>                        
+                <td scope="row">{{n.id}}</td>
+                <td>{{n.tipo}}</td>
+                <td>{{n.materia_prima}}</td>
+                <td>{{n.destilacion}}</td>
+                <td>{{n.tipo_agua}} </td>
+                <td>{{n.tiempo}}</td>
+                {% if request.user.is_authenticated %}
+                <td><a href="{% url 'wky_edit_form' n.id %}">EDITAR</a></td>
+                <td><a href="{% url 'wky_elim_form' n.id %}">BORRAR</a></td>
+                {% endif %}
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% if request.user.is_authenticated %}
+    <button>
+        <a href="wky_alta_form"> Agregar nuevo estilo de Whisky</a>
+    </button>
+    {% endif %}
+
+
+    
+{% endblock%}
+
+
+
+
+
+
+
+

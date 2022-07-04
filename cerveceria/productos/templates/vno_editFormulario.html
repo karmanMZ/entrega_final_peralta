@@ -1,0 +1,37 @@
+
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>Formulario - editar tipo de Vino</h1>
+
+   
+    
+    <form action="{% url 'vno_edit_form' vino.id %}" method="POST">
+        {% csrf_token %}
+
+        <p>Tipo de Vino</p>
+        {{formulario.color}}
+        <p>Estado</p>
+        {{formulario.estado}}
+        <p>Envejecimiento (en años)</p>
+        {{formulario.envejecimiento}}
+        <p>Calidad</p>
+        {{formulario.calidad}}
+        <p>Azucar (en g/l)</p>
+        {{formulario.azucar}}    
+
+    
+        <input type="submit" , value="Eviar">
+    
+        
+        
+        
+        
+
+    
+    
+    </form>
+{% endblock%}
+

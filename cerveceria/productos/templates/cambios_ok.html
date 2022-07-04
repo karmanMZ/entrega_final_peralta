@@ -1,0 +1,19 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido%}
+    <h1>LOS CAMBIOS SE REALIZARON CORRECTAMENTE</h1>
+
+    
+            <a href="{% url 'inicio' %}">Ir al inicio</a>
+            <a href="{% url 'prs_lista' %}">Ir a la lista de productos</a>
+            <a href="{% url 'crv_lista' %}">Ir a la lista de cervezas</a>
+            <a href="{% url 'vno_lista' %}">Ir a la lista de vinos</a>
+            <a href="{% url 'wky_lista' %}">Ir a la lista de whiskys</a>
+  
+
+
+
+{% endblock%}
+
